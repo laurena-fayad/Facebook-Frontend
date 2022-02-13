@@ -7,6 +7,7 @@
 
 body{
     background: #efefef;
+    font-family: 'Roboto', sans-serif;
 }
 
 nav{
@@ -97,7 +98,7 @@ nav{
     align-items: center;
     flex-basis: 25%;
     position: sticky;
-    position:relative;
+    position:sticky;
 }
 
 .links{
@@ -207,3 +208,112 @@ nav{
     flex-basis: 47%;
 }
 
+.post-status-container{
+    width: 100%;
+    background: #fff;
+    border-radius: 6px;
+    padding: 20px;
+    color: #626262;
+}
+
+.post-now-btn-div{
+    margin-top: 2%;
+    display: flex;
+    justify-content: flex-end;
+}
+.post-now-btn{
+    padding: 5px 10px;
+    color: #fff;
+    background: #5D5FEF;
+    border-radius: 4px;
+    border:none;
+}
+
+
+.user-profile{
+    display: flex;
+    align-items: center;
+}
+
+.user-profile img{
+    width:45px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-profile p{
+    margin-bottom: -5px;
+    font-weight: 600;
+    color: #626262;
+    font-family: 'Roboto', sans-serif;
+}
+
+.post-input-container{
+    padding-left: 55px;
+    padding-top: 20px;
+}
+
+.post-input-container textarea{
+    width: 100%;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    resize: none;
+}
+.post-container{
+    width: 100%;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 20px;
+    color: #626262;
+    margin: 20px 0;
+}
+.user-profile span{
+    font-size: 13px;
+    color: #9a9a9a;
+    font-size: 12px;
+}
+.post-text{
+    color: #626262;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 15px;
+}
+
+.post-text a{
+    color: #5D5FEF;
+    text-decoration: none;
+}
+.post-likes{
+    display: flex;
+    align-items: center;
+}
+
+.activity-icons div img{
+    width: 18px;
+    margin-right: 10px;
+}
+.activity-icons{
+    display: inline-flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.load-more-btn{
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #A5A6F6;
+    color: #5D5FEF;
+    background: transparent;
+    border-radius: 4px;
+}
+
+.footer{
+    text-align: center;
+    color: #9a9a9a;
+    padding: 10px 0 20px;
+    font-size: 13px;
+}

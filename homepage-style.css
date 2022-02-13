@@ -28,7 +28,12 @@ nav{
 .nav-left-side{
     display: flex;
     align-items: center;
-    width: 50vw;
+    width: 70vw;
+}
+
+.nav-icon{
+    width: 25px;
+    height:25px;
 }
 
 .search-bar{
@@ -60,7 +65,7 @@ nav{
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     color: #efefef;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .nav-profile img{

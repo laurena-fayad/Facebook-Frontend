@@ -7,7 +7,6 @@
 
 body{
     background: #efefef;
-    font-family: 'Roboto', sans-serif;
 }
 
 nav{
@@ -240,14 +239,21 @@ nav{
 
 .user-profile img{
     width:45px;
+    height:45px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-.user-profile p{
+.user-profile {
     margin-bottom: -5px;
     font-weight: 600;
     color: #626262;
+    font-family: 'Roboto', sans-serif;
+}
+
+.user-profile div span{
+    font-weight: 300;
+    color: #9a9a9a;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -257,6 +263,8 @@ nav{
 }
 
 .post-input-container textarea{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
     width: 100%;
     border: 0;
     outline: 0;
@@ -282,6 +290,7 @@ nav{
     margin-top: 2%;
     margin-bottom: 2%;
     font-size: 15px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .post-text a{

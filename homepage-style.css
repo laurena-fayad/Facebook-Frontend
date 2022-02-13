@@ -9,12 +9,16 @@ body{
     background: #efefef;
 }
 
+
 nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #5D5FEF;
     padding: 5px 5%;
+    position: sticky;
+    top:0;
+    z-index: 100;
 }
 
 .logo{
@@ -82,3 +86,76 @@ nav{
     right:0;
 }
 
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 5%;
+}
+
+.profile-preview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 25%;
+    position: sticky;
+    position:relative;
+}
+
+.friend-suggestions{
+    flex-basis: 25%;
+    position: sticky;
+    align-self: flex-start;
+    top:15%;
+}
+
+.main-content{
+    flex-basis: 47%;
+}
+
+.links{
+    margin-top: 30%;
+}
+.links a{
+    text-align: center;
+    font-family: roboto, sans-serif;
+    font-weight: 900;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    width: fit-content;
+    color:#5D5FEF;
+}
+
+.img-preview{
+    width: 35%;
+    border-radius: 50%;
+    z-index:100;
+    position: absolute;
+    border:3px solid #A5A6F6;
+}
+
+.profile-preview-box{
+    position: relative;
+    width:70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+    margin-top: 25%;
+}
+
+.right-sidebar-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.right-sidebar-title h4{
+    font-weight: 600;
+    font-size: 16px;
+}

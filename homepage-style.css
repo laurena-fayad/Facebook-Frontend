@@ -90,6 +90,22 @@ nav{
     right:0;
 }
 
+.notif{
+    position: relative;
+}
+
+.notif::after{
+    content:'';
+    width: 7px;
+    height: 7px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background-color: rgb(196, 48, 48);
+    position: absolute;
+    top:0;
+    right:0;
+}
+
 .container{
     display: flex;
     justify-content: space-between;

@@ -17,6 +17,7 @@ axios.get(friend_requests_api).then(response => {
     for (let i = 0; i<data.length; i++){
         let request = `${data[i].fname}` + " " + `${data[i].lname}` 
         let requestID = `${data[i].id}`
-        document.getElementById("requests").innerHTML += "<li>" +" " + requestID+" "+ request + "</li>"
+        let string = "<div class=request><div class=left-request><img src=assets/profile-pic.png><h2>"+request+"</h2></div><div class=right-request><button id=accept-btn type=button>Accept</button><button id=ignore-btn type=button>Ignore</button></div></div>"
+        document.getElementById("requests").innerHTML += string
     }
 })

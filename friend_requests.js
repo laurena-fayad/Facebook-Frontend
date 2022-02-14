@@ -5,3 +5,20 @@ document.getElementById("feed_btn").addEventListener("click", function(){
 document.getElementById("friend_requests_btn").addEventListener("click", function(){
     location.href = 'friend_requests.html'
 })
+
+let data = [];
+//Should be the actual logged in user
+let current_user = 27
+let friend_requests_api = "http://localhost/Facebook/Facebook-Backend/view_friend_requests.php/?user_id=" + current_user
+axios.get(friend_requests_api).then(response => {
+    data = response.data;
+    for (let i = 0; i<data.length; i++){
+        let li = `${data[i].fname}` + " " + `${data[i].lname}` 
+        document.getElementById("requests").innerHTML += "<li>" + li + "</li>"
+    }    
+})
+
+
+
+
+

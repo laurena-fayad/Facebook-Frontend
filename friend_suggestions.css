@@ -7,6 +7,7 @@
 
 body{
     background: #efefef;
+    font-family: 'Roboto', sans-serif;
 }
 
 nav{
@@ -88,4 +89,70 @@ nav{
     position: absolute;
     top:0;
     right:0;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 5%;
+}
+
+.suggestion{
+    display: flex;
+    font-size: 14px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.suggestion img{
+    border-radius: 15px;
+    width: 5vw;
+}
+
+.suggestion a{
+    text-decoration: none;
+    font-weight: 600;
+    color:#5D5FEF;
+}
+
+.left-suggestion{
+    display: flex;
+    align-items: center;
+    width: 60%;
+}
+
+.left-suggestion h4{
+    margin-left: 4%;
+}
+
+.friend-suggestions{
+    flex-basis: 50%;
+    position: sticky;
+    align-self: flex-start;
+    top:15%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    color: #626262;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+.friend-suggestions h4{
+    font-weight: 600;
+    font-size: 14px;
+    padding-bottom: 5%;
+}
+
+.friend-suggestions h3{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.footer{
+    text-align: center;
+    color: #9a9a9a;
+    padding: 10px 0 20px;
+    font-size: 13px;
 }

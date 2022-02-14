@@ -14,10 +14,11 @@ let data = [];
 let friend_suggestions_api = "http://localhost/Facebook/Facebook-Backend/view_friend_suggestions.php/?user_id=" + current_user
 axios.get(friend_suggestions_api).then(response => {
     data = response.data;
-    console.log(data)
+
     for (let i = 0; i<data.length; i++){
         let suggestion = `${data[i].fname}` + " " + `${data[i].lname}` 
         let suggestionID = `${data[i].id}`
-        document.getElementById("suggestion").innerHTML += "<li>" +" " + suggestionID+" "+ suggestion + "</li>"
+        let string = "<div class=suggestion><div class=left-suggestion><img src=assets/profile-pic.png><h4>"+suggestion+"</h4></div><div class=right-suggestion><a class=add-friend-btn href=#>Add Friend</a></div></div>"
+        document.getElementById("suggestions").innerHTML += string
     }
 })

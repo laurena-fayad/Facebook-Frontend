@@ -6,6 +6,10 @@ document.getElementById("friend_requests_btn").addEventListener("click", functio
     location.href = 'friend_requests.html'
 })
 
+document.getElementById("friend-suggestions-page").addEventListener("click", function(){
+    location.href = 'friend_suggestions.html'
+})
+
 //Should be the actual logged in user
 window.localStorage.setItem('current_user', '27');
 let current_user = window.localStorage.getItem('current_user')
@@ -17,7 +21,7 @@ axios.get(friend_requests_api).then(response => {
     for (let i = 0; i<data.length; i++){
         let request = `${data[i].fname}` + " " + `${data[i].lname}` 
         let requestID = `${data[i].id}`
-        let string = "<div class=request><div class=left-request><img src=assets/profile-pic.png><h2>"+request+"</h2></div><div class=right-request><button id=accept-btn type=button>Accept</button><button id=ignore-btn type=button>Ignore</button></div></div>"
+        let string = "<div class=request><div class=left-request><img src=assets/profile-pic.png><h4>"+request+"</h4></div><div class=right-request><button id=accept-btn type=button>Accept</button><button id=ignore-btn type=button>Ignore</button></div></div>"
         document.getElementById("requests").innerHTML += string
     }
 })

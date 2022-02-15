@@ -15,7 +15,26 @@ if (email !=null && password!=null && validateEmail(email)){
 bodyFormData.append('email', email);
 bodyFormData.append('password', psw);
 
+axios({
+    method: 'post',
+    url: 'http://localhost/fbmain/Facebook-Backend/login.php',
+    data: bodyFormData,
+})
+.then(function (response) {
+    console.log(response.data);
+    window.localStorage.setItem('token', response.data.token);
+    if (window.localStorage.getItem('token')!='undefined'){
+        window.location.replace("http://127.0.0.1:5500/feeds.html");
+    }
+   else{
 
+   }
+
+})
+.catch(function (error) {
+    console.log(error);
+});
+}
 
 }
 

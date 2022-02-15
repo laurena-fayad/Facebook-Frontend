@@ -32,6 +32,7 @@ axios.get(friend_requests_api).then(response => {
             requestID = accept_btn_ID.replace('accept','')
             let requests_accept_data = [];
             let friend_requests_accept_api = "http://localhost/Facebook/Facebook-Backend/accept_friend_request.php/?user1=" + requestID + "&user2=" + current_user
+           
             axios.get(friend_requests_accept_api).then(response => {
                 requests_accept_data = response.data;
                 if(`${requests_accept_data.status}` == "Friend request accepted successfully."){

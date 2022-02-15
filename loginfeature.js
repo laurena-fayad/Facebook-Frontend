@@ -1,11 +1,11 @@
 
-    const validateEmail = (email) => {
-        return String(email)
-          .toLowerCase()
-          .match(
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          );
-      };
+const validateEmail = (email) => {
+    return String(email)
+        .toLowerCase()
+        .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+};
 
 function login(){
 var bodyFormData = new FormData();
@@ -17,24 +17,21 @@ bodyFormData.append('password', psw);
 
 axios({
     method: 'post',
-    url: 'http://localhost/fbmain/Facebook-Backend/login.php',
+    url: 'http://localhost/Facebook/Facebook-Backend/login.php',
     data: bodyFormData,
 })
 .then(function (response) {
     console.log(response.data);
     window.localStorage.setItem('token', response.data.token);
+    window.localStorage.setItem('fname', response.data.fname);
+    window.localStorage.setItem('lname', response.data.lname);
+
     if (window.localStorage.getItem('token')!='undefined'){
-        window.location.replace("http://127.0.0.1:5500/feeds.html");
+        location.href="homepage.html";
     }
-   else{
-
-   }
-
 })
 .catch(function (error) {
     console.log(error);
 });
 }
-
 }
-

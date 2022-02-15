@@ -21,6 +21,32 @@ document.getElementById("load-more-btn").addEventListener("click", function(){
     location.href = 'homepage.html'
 })
 
+//Adding post text to database on click
+document.getElementById("post-now-btn").addEventListener("click", function(){
+    
+    let data = [];
+    let bodyFormData = new FormData();
+    let post= document.getElementById("text-area").value;
+    let token= window.localStorage.getItem('token');
+    bodyFormData.append('token', token);
+    bodyFormData.append('function', 'POST');
+    bodyFormData.append('post', post);
+    
+    axios({
+        method: 'post',
+        url: 'http://localhost/Facebook/Facebook-Backend/post.php',
+        data: bodyFormData,
+    })
+    .then(function (response) {
+        data = response.data
+        if(`${data.status}` == "You've just posted!") {
+            document.getElementById("post-status").innerHTML = "Post Successful!"
+        }else{
+            document.getElementById("post-status").innerHTML = "Error. Post Unsuccessful."    
+        }
+    })  
+})
+
 //Populating Feed Posts
 var bodyFormData = new FormData();
 let token= window.localStorage.getItem('token');
@@ -47,31 +73,34 @@ axios({
     }           
 })
 
-//Adding post text to database on click
-document.getElementById("post-now-btn").addEventListener("click", function(){
-    
-    let data = [];
-    let bodyFormData = new FormData();
-    let post= document.getElementById("text-area").value;
-    let token= window.localStorage.getItem('token');
-    bodyFormData.append('token', token);
-    bodyFormData.append('function', 'POST');
-    bodyFormData.append('post', post);
-    
-    axios({
-        method: 'post',
-        url: 'http://localhost/Facebook/Facebook-Backend/post.php',
-        data: bodyFormData,
-    })
-    .then(function (response) {
-        data = response.data
-        if(`${data.status}` == "You've just posted!") {
-            document.getElementById("post-status").innerHTML = "Post Successful!"
-        }else{
-            document.getElementById("post-status").innerHTML = "Error. Post Unsuccessful."    
-        }
-    })
-    .catch(function (error) {
-        console.log(error);
-    });   
+// Populating friend suggestions section
+let data = [];
+let friend_suggestions_api = "http://localhost/Facebook/Facebook-Backend/view_friend_suggestions.php/?user_id=" + current_user
+axios.get(friend_suggestions_api).then(response => {
+    data = response.data;
+
+    for (let i = 0; i<data.length; i++){
+        let suggestion = `${data[i].fname}` + " " + `${data[i].lname}` 
+        let suggestionID = `${data[i].id}`
+        let friend_suggestions_string = "<div class=suggestion><div class=left-suggestion><img src=assets/profile-pic.png><h4>"+suggestion+"</h4></div><div class=right-suggestion><a class=add-friend-btn id=" + suggestionID + " href=#>Add Friend</a></div></div>"
+        document.getElementById("suggestions").innerHTML += friend_suggestions_string 
+    }
+
+    //Check if any add friend button is clicked and update DB accordingly
+    let add_friend_buttons =  document.getElementsByClassName("add-friend-btn")
+
+    for (let i = 0; i < add_friend_buttons.length; i++) {
+        
+        add_friend_buttons[i].addEventListener("click", function() {
+            requestID = this.getAttribute('id')
+            let add_friend_data = [];
+            let add_friend_api = "http://localhost/Facebook/Facebook-Backend/send_friend_request.php/?user1=" + current_user + "&user2=" + requestID
+            axios.get(add_friend_api).then(response => {
+                add_friend_data = response.data;
+                if(`${add_friend_data.status}` != null){
+                    document.getElementById(requestID).innerHTML = "Request Sent!"
+                }
+            })
+        });
+    } 
 })

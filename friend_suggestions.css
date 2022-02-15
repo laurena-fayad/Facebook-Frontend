@@ -94,7 +94,6 @@ nav{
 .container{
     display: flex;
     justify-content: space-between;
-    padding: 13px 5%;
 }
 
 .suggestion{
@@ -129,7 +128,6 @@ nav{
 
 .friend-suggestions{
     flex-basis: 50%;
-    position: sticky;
     align-self: flex-start;
     top:15%;
     background-color: #fff;
@@ -147,7 +145,27 @@ nav{
 
 .friend-suggestions h3{
     font-weight: 600;
-    font-size: 22px;
+    font-size: 30px;
+}
+
+.left-sidebar{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    position: sticky;
+    background-color:#A5A6F6;
+    height:100vh;
+}
+
+.right-sidebar{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    position: sticky;
+    background-color:#A5A6F6;
+    height:100vh;
+    margin:0;
+    padding: 0%;
 }
 
 .footer{

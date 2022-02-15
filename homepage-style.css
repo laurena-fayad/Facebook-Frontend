@@ -315,7 +315,7 @@ nav{
     font-family: 'Roboto', sans-serif;
 }
 
-#post-text a{
+#post-text a, .delete-post-btn{
     color: #5D5FEF;
     text-decoration: none;
 }
@@ -356,6 +356,10 @@ nav{
     margin-top: 3%;
 }
 
+.post-row {
+    display: flex;
+    justify-content: space-between;
+}
 .footer{
     text-align: center;
     color: #9a9a9a;

@@ -67,9 +67,16 @@ axios({
         let post_id = `${response.data[i].post_id}`
         let account_id = `${response.data[i].id}`
 
-        let post_html = "<div class=post-container><div class=user-profile><img src=assets/profile-pic.png><div><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a href=#><img src=assets/like-blue.png></a><span>30</span></div></div></div></div>"
+        console.log(response.data)
 
-        document.getElementById("posts").innerHTML += post_html
+        let post_html = "<div class=post-container><div class=user-profile><img src=assets/profile-pic.png><div><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a href=#><img src=assets/like-blue.png></a><span>30</span></div></div></div></div>"
+        let mypost_html = "<div class=post-container><div class=post-row><div class=user-profile><img src=assets/profile-pic.png><div id=post-info><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><a class=delete-post-btn id=" + post_id + " href=#>Delete Post</a></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a href=#><img src=assets/like-blue.png></a><span>30</span></div></div></div></div>"
+        
+        if(account_id == current_user){
+            document.getElementById("posts").innerHTML += mypost_html
+        }else{
+            document.getElementById("posts").innerHTML += post_html
+        }
     }           
 })
 

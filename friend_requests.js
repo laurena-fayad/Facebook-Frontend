@@ -26,14 +26,14 @@ axios.get(friend_requests_api).then(response => {
         document.getElementById("requests").innerHTML += friend_requests_string
     }
 
-    let buttons =  document.getElementsByClassName("accept-btn")
+    //Check if any accept button is clicked and update DB accordingly
+    let accept_buttons =  document.getElementsByClassName("accept-btn")
 
-    for (let i = 0; i < buttons.length; i++) {
+    for (let i = 0; i < accept_buttons.length; i++) {
         
-        buttons[i].addEventListener("click", function() {
+        accept_buttons[i].addEventListener("click", function() {
             accept_btn_ID = this.getAttribute('id')
             requestID = accept_btn_ID.replace('accept','')
-            console.log(requestID)
             let requests_accept_data = [];
             let friend_requests_accept_api = "http://localhost/Facebook/Facebook-Backend/accept_friend_request.php/?user1=" + requestID + "&user2=" + current_user
             axios.get(friend_requests_accept_api).then(response => {
@@ -42,6 +42,28 @@ axios.get(friend_requests_api).then(response => {
                     ignore_btn_ID = "ignore"+requestID
                     document.getElementById(accept_btn_ID).innerHTML = "New Friend Alert!"
                     document.getElementById(ignore_btn_ID).style.display = "none"
+                }
+            })
+        });
+    }
+    
+    //Check if any ignore button is clicked and update DB accordingly
+    let ignore_buttons =  document.getElementsByClassName("ignore-btn")
+
+    for (let i = 0; i < ignore_buttons.length; i++) {
+        
+        ignore_buttons[i].addEventListener("click", function() {
+            ignore_btn_ID = this.getAttribute('id')
+            requestID = ignore_btn_ID.replace('ignore','')
+            let requests_ignore_data = [];
+            let friend_requests_ignore_api = "http://localhost/Facebook/Facebook-Backend/ignore_friend_request.php/?user1=" + requestID + "&user2=" + current_user
+            axios.get(friend_requests_ignore_api).then(response => {
+                requests_ignore_data = response.data;
+                if(`${requests_ignore_data.status}` == "Friend request ignored successfully."){
+                    accept_btn_ID = "accept"+requestID
+                    console.log(accept_btn_ID, ignore_btn_ID)
+                    document.getElementById(ignore_btn_ID).innerHTML = "Request Ignored."
+                    document.getElementById(accept_btn_ID).style.display = "none"
                 }
             })
         });

@@ -6,10 +6,6 @@ document.getElementById("friend_requests_btn").addEventListener("click", functio
     location.href = 'friend_requests.html'
 })
 
-document.getElementById("friend-suggestions-page").addEventListener("click", function(){
-    location.href = 'friend_suggestions.html'
-})
-
 //Should be the actual logged in user
 window.localStorage.setItem('current_user', '27');
 let current_user = window.localStorage.getItem('current_user')

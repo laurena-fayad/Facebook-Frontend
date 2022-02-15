@@ -307,7 +307,7 @@ nav{
     color: #9a9a9a;
     font-size: 12px;
 }
-.post-text{
+#post-text{
     color: #626262;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -315,7 +315,7 @@ nav{
     font-family: 'Roboto', sans-serif;
 }
 
-.post-text a{
+#post-text a{
     color: #5D5FEF;
     text-decoration: none;
 }
@@ -334,7 +334,7 @@ nav{
     margin-right: 30px;
 }
 
-.load-more-btn{
+#load-more-btn{
     display: block;
     margin: auto;
     cursor: pointer;
@@ -345,15 +345,15 @@ nav{
     border-radius: 4px;
 }
 
+#load-more-btn:hover{
+    filter: brightness(110%);
+}
+
 #post-status{
     color: #5D5FEF;
     font-size: 16px;
     text-align: center;
     margin-top: 3%;
-}
-
-.load-more-btn:hover{
-    filter: brightness(110%);
 }
 
 .footer{

@@ -7,6 +7,14 @@
           );
       };
 
+function login(){
+var bodyFormData = new FormData();
+let email= document.getElementById("email").value
+let psw = document.getElementById("password").value
+if (email !=null && password!=null && validateEmail(email)){
+bodyFormData.append('email', email);
+bodyFormData.append('password', psw);
+
 
 
 }

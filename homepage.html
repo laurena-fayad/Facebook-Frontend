@@ -48,11 +48,15 @@
                 </div>
 
                 <div class="post-input-container">
-                    <textarea rows="3" placeholder="Share your thoughts..."></textarea>
+                    <textarea id="text-area" rows="3" placeholder="Share your thoughts..."></textarea>
                 </div>
                 <div class="post-now-btn-div">
-                    <button type="button" class="post-now-btn">Post Now</button>
+                    <button type="button" id="post-now-btn">Post Now</button>
                 </div>
+            </div>
+
+            <div>
+                <p id="post-status"></p>
             </div>
 
             <div class="post-container">
@@ -175,7 +179,8 @@
     <div class="footer">
         <p>Copyright 2022 - SEF</p>
     </div>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="homepage.js"></script>
 </body>
 </html>

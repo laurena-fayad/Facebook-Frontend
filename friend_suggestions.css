@@ -129,7 +129,7 @@ nav{
 .friend-suggestions{
     flex-basis: 50%;
     align-self: flex-start;
-    top:15%;
+    margin-top:5%;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -153,7 +153,7 @@ nav{
     flex-direction: column;
     flex-basis: 25%;
     position: sticky;
-    background-color:#A5A6F6;
+    background-color:#efefef;;
     height:100vh;
 }
 
@@ -162,15 +162,8 @@ nav{
     flex-direction: column;
     flex-basis: 25%;
     position: sticky;
-    background-color:#A5A6F6;
+    background-color:#efefef;;
     height:100vh;
     margin:0;
     padding: 0%;
-}
-
-.footer{
-    text-align: center;
-    color: #9a9a9a;
-    padding: 10px 0 20px;
-    font-size: 13px;
 }

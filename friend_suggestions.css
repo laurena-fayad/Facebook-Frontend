@@ -106,7 +106,7 @@ nav{
 }
 
 .suggestion img{
-    border-radius: 15px;
+    border-radius: 50%;
     width: 5vw;
 }
 
@@ -127,7 +127,7 @@ nav{
 }
 
 .friend-suggestions{
-    flex-basis: 50%;
+    flex-basis: 47%;
     align-self: flex-start;
     margin-top:5%;
     background-color: #fff;
@@ -139,7 +139,7 @@ nav{
 
 .friend-suggestions h4{
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     padding-bottom: 5%;
 }
 

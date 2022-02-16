@@ -18,6 +18,10 @@ document.getElementById("view-friends").addEventListener("click", function(){
     location.href = 'friends.html'
 })
 
+document.getElementById("logout").addEventListener("click", function(){
+    location.href = 'index.html'
+})
+
 document.getElementById("user_name").innerHTML = fname + " " + lname
 
 document.getElementById("load-more-btn").addEventListener("click", function(){
@@ -65,6 +69,7 @@ axios({
     console.log(posts_data)
     for (let i = 0; i<posts_data.length; i++){
 
+        console.log(posts_data)
         let post_text = `${posts_data[i].post_text}`
         let account_name = `${posts_data[i].fname}` + " " + `${posts_data[i].lname}`
         let post_date = `${posts_data[i].post_date}`
@@ -75,11 +80,11 @@ axios({
         let post_html = "<div class=post-container><div class=user-profile><img src=assets/profile-pic.png><div><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a class=like-btn id=like" + post_id + " href=#><img src=assets/like-blue.png></a><span id=likes-counter" + post_id + "></span></div></div></div></div>"
         let mypost_html = "<div class=post-container><div class=post-row><div class=user-profile><img src=assets/profile-pic.png><div id=post-info><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><a class=delete-post-btn id=" + post_id + " href=#>Delete Post</a></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a class=like-btn id=like" + post_id + " href=#><img src=assets/like-blue.png></a><span id=likes-counter" + post_id + "></span></div></div></div></div>"
         
-        if(account_id == current){
-            document.getElementById("posts").innerHTML += mypost_html
-        }else{
+        // if(account_id == current){
+            // document.getElementById("posts").innerHTML += mypost_html
+        // }else{
             document.getElementById("posts").innerHTML += post_html
-        }
+        // }
 
         //Display the number of likes on each post
         var bodyFormData = new FormData()
@@ -167,7 +172,7 @@ axios({
 
     data = response.data;
 
-    for (let i = 0; i<4; i++){
+    for (let i = 0; i<3; i++){
         let suggestion = `${data[i].fname}` + " " + `${data[i].lname}` 
         let suggestionID = `${data[i].id}`
         let friend_suggestions_string = "<div class=suggestion><div class=left-suggestion><img src=assets/profile-pic.png><h4>"+suggestion+"</h4></div><div class=right-suggestion><a class=add-friend-btn id=" + suggestionID + " href=#>Add Friend</a></div></div>"

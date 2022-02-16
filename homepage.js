@@ -16,6 +16,10 @@ document.getElementById("friend-suggestions-page").addEventListener("click", fun
     location.href = 'friend_suggestions.html'
 })
 
+document.getElementById("view-friends").addEventListener("click", function(){
+    location.href = 'friends.html'
+})
+
 document.getElementById("user_name").innerHTML = fname + " " + lname
 
 document.getElementById("load-more-btn").addEventListener("click", function(){

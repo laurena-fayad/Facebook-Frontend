@@ -53,7 +53,6 @@ var bodyFormData = new FormData();
 bodyFormData.append('token', token);
 bodyFormData.append('function', 'GET');    
 
-
 axios({
     method: 'post',
     url: 'http://localhost/Facebook/Facebook-Backend/post.php',
@@ -67,8 +66,8 @@ axios({
         let post_id = `${response.data[i].post_id}`
         let account_id = `${response.data[i].id}`
 
-        let post_html = "<div class=post-container><div class=user-profile><img src=assets/profile-pic.png><div><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a href=#><img src=assets/like-blue.png></a><span>30</span></div></div></div></div>"
-        let mypost_html = "<div class=post-container><div class=post-row><div class=user-profile><img src=assets/profile-pic.png><div id=post-info><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><a class=delete-post-btn id=" + post_id + " href=#>Delete Post</a></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a href=#><img src=assets/like-blue.png></a><span>30</span></div></div></div></div>"
+        let post_html = "<div class=post-container><div class=user-profile><img src=assets/profile-pic.png><div><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a class=like-btn id=like" + post_id + " href=#><img src=assets/like-blue.png></a><span id=likes-counter" + post_id + "></span></div></div></div></div>"
+        let mypost_html = "<div class=post-container><div class=post-row><div class=user-profile><img src=assets/profile-pic.png><div id=post-info><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><a class=delete-post-btn id=" + post_id + " href=#>Delete Post</a></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a class=like-btn id=like" + post_id + " href=#><img src=assets/like-blue.png></a><span id=likes-counter" + post_id + "></span></div></div></div></div>"
         
         if(account_id == current_user){
             document.getElementById("posts").innerHTML += mypost_html
@@ -77,15 +76,36 @@ axios({
         }
     }  
     
+    //Liking a post
+    let like_btns = document.getElementsByClassName("like-btn")
+    for (let i = 0; i<like_btns.length; i++){
+        like_btns[i].addEventListener("click", function(){
+            var bodyFormData = new FormData()
+            let liked_post_id = this.getAttribute('id')
+            let post_id = liked_post_id.replace("like","")
+            let likes_counter = "likes-counter" + post_id
+
+            bodyFormData.append('token', token);
+            bodyFormData.append('post_id', post_id);
+
+            axios({
+                method: 'post',
+                url: 'http://localhost/Facebook/Facebook-Backend/like_post.php',
+                data: bodyFormData,
+            })
+            .then(function (response) {
+                document.getElementById(likes_counter).innerHTML = `${response.data.likes}`
+            })
+        })
+    }
+
     //Deleting a post on the feed
     let delete_btns = document.getElementsByClassName("delete-post-btn")
     for (let i = 0; i<delete_btns.length; i++){
         delete_btns[i].addEventListener("click", function(){
 
-            console.log("clicked")
             var bodyFormData = new FormData();
             let deleted_post_id = this.getAttribute('id') 
-            console.log(deleted_post_id)
 
             bodyFormData.append('token', token);
             bodyFormData.append('post_id', deleted_post_id);
@@ -97,7 +117,6 @@ axios({
                 data: bodyFormData,
             })
             .then(function (response) {
-                console.log("response")
                 document.getElementById(deleted_post_id).innerHTML = "Post Deleted!"
             })
         })

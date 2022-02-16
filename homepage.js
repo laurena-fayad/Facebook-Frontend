@@ -143,6 +143,7 @@ axios({
             })
             .then(function (response) {
                 document.getElementById(deleted_post_id).innerHTML = "Post Deleted!"
+                location.href = 'homepage.html'                    
             })
         })
     }

@@ -45,11 +45,17 @@ input[type=text], input[type=password] {
   /* display: flex;
   flex-wrap: wrap; */
   margin-top: -15%;
+  font-size:xx-large;
   /* margin-left: 9.7%; */
 }
 
 #mail{
-  margin-left:-45px;
+  margin-left:-93px;
+  font-size: smaller;
+}
+
+#pass{
+  font-size: smaller;
 }
 button {
   background-color: #5D5FEF;

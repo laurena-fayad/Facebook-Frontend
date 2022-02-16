@@ -16,7 +16,7 @@ body {
     flex-wrap: wrap; 
     align-items: center;
     width:40%;
-    margin-left: 60%;
+    margin-left: 58%;
     margin-bottom: 100%;
     margin-top: -32%;
 }
@@ -39,12 +39,10 @@ body {
 }
 
 img{
-  height:10rem;
-  width:10rem;
-  display: flex;
- flex-direction: column;
+  height:auto;
+  width:25%;
   margin-top: 220px;
-  margin-left: 220px;
+  margin-left: 230px;
 }
 .slogan{
   width:50%;
@@ -70,11 +68,9 @@ input[type=text], input[type=password] {
 }
 
 #login{
-  /* display: flex;
-  flex-wrap: wrap; */
   margin-top: -15%;
   font-size:xx-large;
-  /* margin-left: 9.7%; */
+  
 }
 
 #mail{
@@ -85,6 +81,8 @@ input[type=text], input[type=password] {
 #pass{
   font-size: smaller;
 }
+
+
 button {
   background-color: #5D5FEF;
   color: white;
@@ -102,7 +100,10 @@ button:hover {
 
 
  @media screen and (max-width: 300px) {
- 
+ img{
+  width:100%;
+  height:auto;
+ }
   
 }
 

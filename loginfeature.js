@@ -12,26 +12,34 @@ var bodyFormData = new FormData();
 let email= document.getElementById("email").value
 let psw = document.getElementById("password").value
 if (email !=null && password!=null && validateEmail(email)){
+    
 bodyFormData.append('email', email);
 bodyFormData.append('password', psw);
 
 axios({
     method: 'post',
-    url: 'http://localhost/Facebook/Facebook-Backend/login.php',
+    url: 'http://localhost/SE_FACTORY_FB/Facebook-Backend/login.php',
     data: bodyFormData,
 })
 .then(function (response) {
-    console.log(response.data);
+    console.log(response);
     window.localStorage.setItem('token', response.data.token);
     window.localStorage.setItem('fname', response.data.fname);
     window.localStorage.setItem('lname', response.data.lname);
 
+   
+
     if (window.localStorage.getItem('token')!='undefined'){
-        location.href="homepage.html";
+        window.location.href="http://127.0.0.1:5500/Facebook-Frontend/homepage.html";
     }
 })
 .catch(function (error) {
     console.log(error);
 });
+
+}
+else{
+    {alert("Empty Field");
+}
 }
 }

@@ -5,7 +5,7 @@ function signUp(){
     let mail = document.getElementById("email-pos").value
     let psw = document.getElementById("pass-pos").value
 
-    if(mail !=null && psw!=null && lastname!=null && name!=null) {
+    if(mail !="" && psw!="" && lastname!="" && name!="") {
     bodyFormData.append('name', name);
     bodyFormData.append('lastname', lastname);
     
@@ -14,7 +14,7 @@ function signUp(){
 
     axios({
         method:'post',
-        url: 'http://localhost/fbmain/Facebook-Backend/signup.php',
+        url: 'http://localhost/SE_FACTORY_FB/Facebook-Backend/signup.php',
         data: bodyFormData,
     })
     .then(function (response) { 
@@ -35,4 +35,5 @@ function signUp(){
         console.log(error.data);
     });   
 }
+else {alert("Empty Field")}
 }

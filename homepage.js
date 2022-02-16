@@ -167,7 +167,7 @@ axios({
 
     data = response.data;
 
-    for (let i = 0; i<data.length; i++){
+    for (let i = 0; i<4; i++){
         let suggestion = `${data[i].fname}` + " " + `${data[i].lname}` 
         let suggestionID = `${data[i].id}`
         let friend_suggestions_string = "<div class=suggestion><div class=left-suggestion><img src=assets/profile-pic.png><h4>"+suggestion+"</h4></div><div class=right-suggestion><a class=add-friend-btn id=" + suggestionID + " href=#>Add Friend</a></div></div>"

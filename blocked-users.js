@@ -12,6 +12,7 @@ let blocked_friends_data = []
 let blocked_friend_ID
 let blockedFormData = new FormData();
 blockedFormData.append('token', token);
+console.log("hi")
 
 axios({
     method: 'post',

@@ -14,7 +14,7 @@ function signUp(){
 
     axios({
         method:'post',
-        url: 'http://localhost/SE_FACTORY_FB/Facebook-Backend/signup.php',
+        url: 'http://localhost/Facebook/Facebook-Backend/signup.php',
         data: bodyFormData,
     })
     .then(function (response) { 
@@ -22,7 +22,7 @@ function signUp(){
         if(response.data.status=='SIGNED UP SUCCESSFULLY'){ 
             
 
-         window.location.href = ('http://localhost/SE_FACTORY_FB/Facebook-Frontend/index.html');
+         window.location.href = ('http://localhost/Facebook/Facebook-Frontend/index.html');
 
         }
         else{

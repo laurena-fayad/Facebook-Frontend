@@ -83,15 +83,15 @@ input[type=text], input[type=password] {
   
 }
 
-#mail{
+#name-label{
   font-size: smaller;
 }
 
-#email{
-    width:96%;
+#name{
+    width:97%;
 }
 
-#password{
+#lastname{
     width:100%;
 }
 #pass{

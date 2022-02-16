@@ -26,17 +26,27 @@
 
     
     <div class="container">
-      <h1 id="login"class="label">Log In</h1>
-      <label id="mail" class="label" for="email"><b>Email</b></label>
-      <input id="email" type="text" placeholder= "Enter Email" name="email" required>
-      
-      <label id="pass" class="label" for="psw"><b>Password</b></label>
+      <h1 id="login"class="label">Create Account</h1>
+  <div class="input-section">  
+    <div>
+      <label id="mail" class="label" for="email"><b>First Name</b></label>
+      <input id="email" type="text" placeholder= "Enter Name" name="email" required>
+    </div>
+
+    <div class="pass-pos">
+      <label id="pass" class="label" for="psw"><b>Last Name</b></label>
+      <input id="password" type="password" placeholder="Enter Last Name" name="psw" required>
+    </div> 
+  </div>
+  <label id="pass" class="label" for="psw"><b>Email</b></label>
+  <input id="password" type="password" placeholder="Enter Email" name="psw" required>
+  <label id="pass" class="label" for="psw"><b>Password</b></label>
       <input id="password" type="password" placeholder="Enter Password" name="psw" required>
       
       <button id='login-btn' onclick="login()" type="submit">Login</button>
-      <p id="signup-text">Don't have an account?
+      <p id="signup-text">Already have an account?
         &nbsp; <p id="Signup-btn">
-          <a href = 'signup.html'> Sign Up </a>
+          <a href = 'signup.html'> Log In </a>
         </p>
       </p>
 

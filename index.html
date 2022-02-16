@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+       <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="form-container">      
-        <div class="container">
-          <label for="email"><b>Email</b></label>
-          <input id="email" type="text" placeholder="Enter Email" name="email" required>
+
+<div class="page-container">
+    <div class="slogan">
+       <img src="">
+       <h1>FACEBOOK</h1>
+    </div>
+   
+    <div class="container">
+      <label for="email"><b>Email</b></label>
+      <input id="email" type="text" placeholder="Enter Email" name="email" required>
       
-          <label for="psw"><b>Password</b></label>
-          <input id="password" type="password" placeholder="Enter Password" name="psw" required>
-              
-          <button id='login-btn' onclick="login()" type="submit">Login</button>
-        
+      <label for="psw"><b>Password</b></label>
+      <input id="password" type="password" placeholder="Enter Password" name="psw" required>
+      
+      <button id='login-btn' onclick="login()" type="submit">Login</button>
+      
+    </div>
+</div>
+
+<!-- <div class="wrapper">
+  <div class="form">
+    <div class="title">
+      Login To Coding Market
+    </div>
+    
+      <div class="input_wrap">
+        <label for="email">Email</label>
+        <div class="input_field">
+          <input id="email" type="text" class="input" name="email" id="input_text">
         </div>
-      </form>
-    </div>   
+      </div>
+      <div class="input_wrap">
+        <label for="psw">Password</label>
+        <div class="input_field">
+          <input type="password" class="input" id="password" id="input_password">
+        </div>
+      </div>
+      <div class="input_wrap">
+        <span class="error_msg">Incorrect username or password. Please try again</span>
+        <input type="submit" id="login_btn" onclick="login()"class="btn disabled" value="Login" disabled="true">
+      </div>
+    
+  </div>
+</div> -->
+
     
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

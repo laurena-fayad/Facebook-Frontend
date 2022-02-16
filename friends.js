@@ -10,7 +10,7 @@ document.getElementById("friend_requests_btn").addEventListener("click", functio
 })
 
 document.getElementById("blocked-users-page").addEventListener("click", function(){
-    location.href = 'blocked_users.html'
+    location.href = 'blocked-users.html'
 })
 
 let friends_data = []

@@ -92,7 +92,7 @@ axios({
         })
     }
     
-    //Liking a post
+    //Liking/Unliking a post
     let like_btns = document.getElementsByClassName("like-btn")
     for (let i = 0; i<like_btns.length; i++){
         like_btns[i].addEventListener("click", function(){
@@ -110,10 +110,15 @@ axios({
                 data: bodyFormData,
             })
             .then(function (response) {
-                document.getElementById(likes_counter).innerHTML = `${response.data.likes}`
+                axios({method: 'post',
+                url: 'http://localhost/Facebook/Facebook-Backend/view_post_likes.php',
+                data: bodyFormData,
+                })
+                .then(function (response) {
+                    document.getElementById(likes_counter).innerHTML = `${response.data.likes}`
+                })
             })
-        })
-    }
+    })
 
     //Deleting a post on the feed
     let delete_btns = document.getElementsByClassName("delete-post-btn")
@@ -137,6 +142,7 @@ axios({
             })
         })
     }
+}
 })
 
 // Populating friend suggestions section

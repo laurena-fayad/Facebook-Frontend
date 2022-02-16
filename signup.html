@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="signup.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+        
+        <div>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input id="name" type="text" placeholder="Enter your name" name="name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input id="lastname" type="text" placeholder="Enter your username" name="lastname" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input id="email-pos" type="text" placeholder="Enter your email" name="mail" required>
+          </div>
+          
+          <div class="input-box"></div>
+
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input id="pass-pos" type="password" placeholder="Confirm your password" name="psw" required>
+          </div>
+        </div>
+        
+        <div class="button">
+          <input type="submit" onclick="signUp()" value="Sign Up">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- <div class="wrapper">
+  <div class="form">
+    <div class="title">
+      Login To Coding Market
+    </div>
+    
+      <div class="input_wrap">
+        <label for="email">Email</label>
+        <div class="input_field">
+          <input id="email" type="text" class="input" name="email" id="input_text">
+        </div>
+      </div>
+      <div class="input_wrap">
+        <label for="psw">Password</label>
+        <div class="input_field">
+          <input type="password" class="input" id="password" id="input_password">
+        </div>
+      </div>
+      <div class="input_wrap">
+        <span class="error_msg">Incorrect username or password. Please try again</span>
+        <input type="submit" id="login_btn" onclick="login()"class="btn disabled" value="Login" disabled="true">
+      </div>
+    
+  </div>
+</div> -->
+
+
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="signupfeature.js"></script>
+</body>
+</html>

@@ -18,14 +18,16 @@ function signUp(){
         data: bodyFormData,
     })
     .then(function (response) { 
-        // if(response.data.status=='Signed up successfully'){
 
-        //  window.location.href = ('http://localhost/facebook/Facebook-Frontend/index.html');
+        if(response.data.status=='SIGNED UP SUCCESSFULLY'){ 
+            
 
-        // }
-        // else c
+         window.location.href = ('http://localhost/SE_FACTORY_FB/Facebook-Frontend/index.html');
+
+        }
+        else{
         console.log(response.data)
-
+    }
         
 
     })

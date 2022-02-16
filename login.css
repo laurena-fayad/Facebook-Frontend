@@ -36,5 +36,13 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
-
+button {
+  background-color: #5D5FEF;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
 

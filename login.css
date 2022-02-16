@@ -41,6 +41,16 @@ input[type=text], input[type=password] {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+#login{
+  /* display: flex;
+  flex-wrap: wrap; */
+  margin-top: -15%;
+  /* margin-left: 9.7%; */
+}
+
+#mail{
+  margin-left:-45px;
+}
 button {
   background-color: #5D5FEF;
   color: white;

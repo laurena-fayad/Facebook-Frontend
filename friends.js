@@ -9,6 +9,10 @@ document.getElementById("friend_requests_btn").addEventListener("click", functio
     location.href = 'friend_requests.html'
 })
 
+document.getElementById("blocked-users-page").addEventListener("click", function(){
+    location.href = 'blocked_users.html'
+})
+
 let friends_data = []
 let friendID
 let friendFormData = new FormData();

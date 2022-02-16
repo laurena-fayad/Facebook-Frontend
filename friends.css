@@ -105,7 +105,7 @@ nav{
 }
 
 .friend img{
-    border-radius: 15px;
+    border-radius: 50%;
     width: 5vw;
 }
 
@@ -185,4 +185,23 @@ nav{
     background-color:#efefef;
     margin:0;
     padding: 0%;
+}
+
+.friends-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.friends-header h4, h3{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.friends-header a, .suggestion a{
+    text-decoration: none;
+    color: #5D5FEF;
+    font-size: 12px;
+    font-weight: 400;
 }

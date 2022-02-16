@@ -12,13 +12,13 @@ document.getElementById("friend_requests_btn").addEventListener("click", functio
 
 let friends_data = []
 let friendID
-let postFormData = new FormData();
-postFormData.append('token', token);
+let friendFormData = new FormData();
+friendFormData.append('token', token);
 
 axios({
     method: 'post',
     url: 'http://localhost/Facebook/Facebook-Backend/view_friends.php',
-    data: postFormData,
+    data: friendFormData,
 })
 .then(function (response) {
     friends_data = response.data
@@ -29,30 +29,34 @@ axios({
         document.getElementById("friends").innerHTML += friend_string
     }
 
+    //Check if any remove button is clicked and update DB accordingly
+    let remove_buttons =  document.getElementsByClassName("remove-btn")
 
-})  
+    for (let i = 0; i < remove_buttons.length; i++) {
+        
+        remove_buttons[i].addEventListener("click", function() {
+            remove_btn_ID = this.getAttribute('id')
+            friendID = remove_btn_ID.replace('remove','')
+            let removeFormData = new FormData()
+            removeFormData.append('token', token)
+            removeFormData.append('friendID', friendID)
 
-//Check if any remove button is clicked and update DB accordingly
-let accept_buttons =  document.getElementsByClassName("accept-btn")
-
-for (let i = 0; i < accept_buttons.length; i++) {
-    
-    accept_buttons[i].addEventListener("click", function() {
-        accept_btn_ID = this.getAttribute('id')
-        requestID = accept_btn_ID.replace('accept','')
-        let requests_accept_data = [];
-        let friend_requests_accept_api = "http://localhost/Facebook/Facebook-Backend/accept_friend_request.php/?user1=" + requestID + "&user2=" + current_user
-       
-        axios.get(friend_requests_accept_api).then(response => {
-            requests_accept_data = response.data;
-            if(`${requests_accept_data.status}` == "Friend request accepted successfully."){
-                ignore_btn_ID = "ignore"+requestID
-                document.getElementById(accept_btn_ID).innerHTML = "New Friend Alert!"
-                document.getElementById(ignore_btn_ID).style.display = "none"
-            }
+            axios({
+                method: 'post',
+                url: 'http://localhost/Facebook/Facebook-Backend/remove_friend.php',
+                data: removeFormData,
+            })
+            .then(function (response) {
+                if(`${response.data.status}` == "Success"){
+                    document.getElementById(remove_btn_ID).innerHTML = "Removed"
+                    let block_btn_ID = "block" + friendID
+                    document.getElementById(block_btn_id).style.display = none
+                }
+            })
         })
-    });
-}
+    }
+})
+            
 
 //Check if any ignore button is clicked and update DB accordingly
 let ignore_buttons =  document.getElementsByClassName("ignore-btn")

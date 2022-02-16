@@ -1,6 +1,7 @@
 let fname = window.localStorage.getItem('fname')
 let lname = window.localStorage.getItem('lname')
-console.log(fname, lname)
+let token= window.localStorage.getItem('token');
+
 current_user = 27
 
 document.getElementById("feed_btn").addEventListener("click", function(){
@@ -23,33 +24,32 @@ document.getElementById("load-more-btn").addEventListener("click", function(){
 
 //Adding post text to database on click
 document.getElementById("post-now-btn").addEventListener("click", function(){
-    
-    let data = [];
-    let bodyFormData = new FormData();
     let post= document.getElementById("text-area").value;
-    let token= window.localStorage.getItem('token');
-    bodyFormData.append('token', token);
-    bodyFormData.append('function', 'POST');
-    bodyFormData.append('post', post);
-    
-    axios({
-        method: 'post',
-        url: 'http://localhost/Facebook/Facebook-Backend/post.php',
-        data: bodyFormData,
-    })
-    .then(function (response) {
-        data = response.data
-        if(`${data.status}` == "You've just posted!") {
-            document.getElementById("post-status").innerHTML = "Post Successful!"
-        }else{
-            document.getElementById("post-status").innerHTML = "Error. Post Unsuccessful."    
-        }
-    })  
+    if (post != null){
+        let data = [];
+        let postFormData = new FormData();
+        postFormData.append('token', token);
+        postFormData.append('function', 'POST');
+        postFormData.append('post', post);
+        
+        axios({
+            method: 'post',
+            url: 'http://localhost/Facebook/Facebook-Backend/post.php',
+            data: postFormData,
+        })
+        .then(function (response) {
+            data = response.data
+            if(`${data.status}` == "You've just posted!") {
+                document.getElementById("post-status").innerHTML = "Post Successful!"
+            }else{
+                document.getElementById("post-status").innerHTML = "Error. Post Unsuccessful."    
+            }
+        })  
+    }
 })
 
 //Populating Feed Posts
 var bodyFormData = new FormData();
-let token= window.localStorage.getItem('token');
 bodyFormData.append('token', token);
 bodyFormData.append('function', 'GET');    
 
@@ -67,8 +67,6 @@ axios({
         let post_id = `${response.data[i].post_id}`
         let account_id = `${response.data[i].id}`
 
-        console.log(response.data)
-
         let post_html = "<div class=post-container><div class=user-profile><img src=assets/profile-pic.png><div><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a href=#><img src=assets/like-blue.png></a><span>30</span></div></div></div></div>"
         let mypost_html = "<div class=post-container><div class=post-row><div class=user-profile><img src=assets/profile-pic.png><div id=post-info><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><a class=delete-post-btn id=" + post_id + " href=#>Delete Post</a></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a href=#><img src=assets/like-blue.png></a><span>30</span></div></div></div></div>"
         
@@ -77,7 +75,33 @@ axios({
         }else{
             document.getElementById("posts").innerHTML += post_html
         }
-    }           
+    }  
+    
+    //Deleting a post on the feed
+    let delete_btns = document.getElementsByClassName("delete-post-btn")
+    for (let i = 0; i<delete_btns.length; i++){
+        delete_btns[i].addEventListener("click", function(){
+
+            console.log("clicked")
+            var bodyFormData = new FormData();
+            let deleted_post_id = this.getAttribute('id') 
+            console.log(deleted_post_id)
+
+            bodyFormData.append('token', token);
+            bodyFormData.append('post_id', deleted_post_id);
+            bodyFormData.append('function', 'DELETE'); 
+
+            axios({
+                method: 'post',
+                url: 'http://localhost/Facebook/Facebook-Backend/post.php',
+                data: bodyFormData,
+            })
+            .then(function (response) {
+                console.log("response")
+                document.getElementById(deleted_post_id).innerHTML = "Post Deleted!"
+            })
+        })
+    }
 })
 
 // Populating friend suggestions section
@@ -111,3 +135,4 @@ axios.get(friend_suggestions_api).then(response => {
         });
     } 
 })
+

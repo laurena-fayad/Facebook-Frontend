@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 body {
-    width:97%;
-    height:80vh;
+  font-family: 'Roboto', sans-serif;
+  height:100vh;
+  margin: 0;
+  padding:0;
 }
 
   .page-container{
@@ -18,9 +22,8 @@ body {
     margin-left: 58%;
     margin-bottom: 100%;
     margin-top: -32%;
+    margin-right: 5%;
 }
-
-
 
 #signup-text{
   margin-left: 30%;
@@ -29,13 +32,19 @@ body {
 
 #Signup-btn:hover{
   opacity: 0.8;
-  color: blue;
+}
+
+#Signup-btn a{
+  font-weight: bold;
+  color: #5D5FEF;
+  text-decoration: none;
 }
 
 #fb-slogan{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: white;
   text-align: center;
+  font-weight: 300;
+  font-size: 22px;
 }
 
 .input-section{
@@ -43,22 +52,19 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-
 }
 img{
     
   height:auto;
   width:25%;
-  margin-top: 220px;
-  margin-left: 230px;
 }
 .slogan{
   width:50%;
   height:100vh;
   display:flex;
- 
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color:#5D5FEF ;
 }
 
@@ -74,7 +80,6 @@ input[type=text], input[type=password] {
 
 .label{
   color:#5D5FEF;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #login{
@@ -87,12 +92,17 @@ input[type=text], input[type=password] {
   font-size: smaller;
 }
 
+#lname{
+  margin-left: 3%;
+
+}
 #name{
     width:97%;
 }
 
 #lastname{
     width:100%;
+    margin-left: 3%;
 }
 #pass{
   font-size: smaller;
@@ -108,6 +118,8 @@ button {
   border: none;
   cursor: pointer;
   width: 100%;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 button:hover {

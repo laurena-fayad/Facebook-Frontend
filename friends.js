@@ -9,6 +9,9 @@ document.getElementById("friend_requests_btn").addEventListener("click", functio
     location.href = 'friend_requests.html'
 })
 
+document.getElementById("blocked-users-page").addEventListener("click", function(){
+    location.href = 'blocked_users.html'
+})
 
 let friends_data = []
 let friendID
@@ -50,32 +53,36 @@ axios({
                 if(`${response.data.status}` == "Success"){
                     document.getElementById(remove_btn_ID).innerHTML = "Removed"
                     let block_btn_ID = "block" + friendID
-                    document.getElementById(block_btn_id).style.display = none
+                    document.getElementById(block_btn_ID).style.display = "none"
                 }
             })
         })
     }
-})
-            
 
-//Check if any ignore button is clicked and update DB accordingly
-let ignore_buttons =  document.getElementsByClassName("ignore-btn")
+    //Check if any block button is clicked and update DB accordingly
+    let block_buttons =  document.getElementsByClassName("block-btn")
 
-for (let i = 0; i < ignore_buttons.length; i++) {
-    
-    ignore_buttons[i].addEventListener("click", function() {
-        ignore_btn_ID = this.getAttribute('id')
-        requestID = ignore_btn_ID.replace('ignore','')
-        let requests_ignore_data = [];
-        let friend_requests_ignore_api = "http://localhost/Facebook/Facebook-Backend/ignore_friend_request.php/?user1=" + requestID + "&user2=" + current_user
-        axios.get(friend_requests_ignore_api).then(response => {
-            requests_ignore_data = response.data;
-            if(`${requests_ignore_data.status}` == "Friend request ignored successfully."){
-                accept_btn_ID = "accept"+requestID
-                console.log(accept_btn_ID, ignore_btn_ID)
-                document.getElementById(ignore_btn_ID).innerHTML = "Request Ignored."
-                document.getElementById(accept_btn_ID).style.display = "none"
-            }
+    for (let i = 0; i < block_buttons.length; i++) {
+        
+        block_buttons[i].addEventListener("click", function() {
+            block_btn_ID = this.getAttribute('id')
+            friendID = block_btn_ID.replace('block','')
+            let blockFormData = new FormData()
+            blockFormData.append('token', token)
+            blockFormData.append('friendID', friendID)
+
+            axios({
+                method: 'post',
+                url: 'http://localhost/Facebook/Facebook-Backend/block_user.php',
+                data: blockFormData,
+            })
+            .then(function (response) {
+                if(`${response.data.status}` == "Success."){
+                    document.getElementById(block_btn_ID).innerHTML = "Blocked"
+                    let remove_btn_ID = "remove" + friendID
+                    document.getElementById(remove_btn_ID).style.display = "none"
+                }
+            })
         })
-    });
-}   
+    }  
+})

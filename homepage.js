@@ -2,8 +2,6 @@ let fname = window.localStorage.getItem('fname')
 let lname = window.localStorage.getItem('lname')
 let token= window.localStorage.getItem('token');
 
-current_user = 27
-
 document.getElementById("feed_btn").addEventListener("click", function(){
     location.href = 'homepage.html'
 })

@@ -21,7 +21,7 @@ axios({
 })
 .then(function (response) {
     friend_requests_data = response.data;
-=    for (let i = 0; i<friend_requests_data.length; i++){
+    for (let i = 0; i<friend_requests_data.length; i++){
         let request = `${friend_requests_data[i].fname}` + " " + `${friend_requests_data[i].lname}` 
         requestID = `${friend_requests_data[i].id}`
         let friend_requests_string = "<div class=request><div class=left-request><img src=assets/profile-pic.png><h4>"+request+"</h4></div><div class=right-request><button id=accept" + requestID + " class=accept-btn type=button>Accept</button><button id=ignore" + requestID + " class=ignore-btn type=button>Ignore</button></div></div>"

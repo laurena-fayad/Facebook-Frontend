@@ -61,17 +61,21 @@ axios({
     data: bodyFormData,
 })
 .then(function (response) {
-    for(var i in response.data){
-        let post_text = `${response.data[i].post_text}`;
-        let account_name = `${response.data[i].fname}` + " " + `${response.data[i].lname}`;
-        let post_date = `${response.data[i].post_date}`
-        let post_id = `${response.data[i].post_id}`
-        let account_id = `${response.data[i].id}`
+    let posts_data = response.data
+    console.log(posts_data)
+    for (let i = 0; i<posts_data.length; i++){
+
+        let post_text = `${posts_data[i].post_text}`
+        let account_name = `${posts_data[i].fname}` + " " + `${posts_data[i].lname}`
+        let post_date = `${posts_data[i].post_date}`
+        let post_id = `${posts_data[i].post_id}`
+        let account_id = `${posts_data[i].id}`
+        let current = `${posts_data.current}`
 
         let post_html = "<div class=post-container><div class=user-profile><img src=assets/profile-pic.png><div><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a class=like-btn id=like" + post_id + " href=#><img src=assets/like-blue.png></a><span id=likes-counter" + post_id + "></span></div></div></div></div>"
         let mypost_html = "<div class=post-container><div class=post-row><div class=user-profile><img src=assets/profile-pic.png><div id=post-info><p id=post_account_name>"+account_name+"</p><span id=post_date>"+post_date+"</span></div></div><a class=delete-post-btn id=" + post_id + " href=#>Delete Post</a></div><p id=post-text>"+post_text+"</p><div class=post-likes><div class=activity-icons><div><a class=like-btn id=like" + post_id + " href=#><img src=assets/like-blue.png></a><span id=likes-counter" + post_id + "></span></div></div></div></div>"
         
-        if(account_id == current_user){
+        if(account_id == current){
             document.getElementById("posts").innerHTML += mypost_html
         }else{
             document.getElementById("posts").innerHTML += post_html
@@ -150,8 +154,17 @@ axios({
 
 // Populating friend suggestions section
 let data = [];
-let friend_suggestions_api = "http://localhost/Facebook/Facebook-Backend/view_friend_suggestions.php/?user_id=" + current_user
-axios.get(friend_suggestions_api).then(response => {
+
+let suggestionFormData = new FormData();
+suggestionFormData.append('token', token);
+
+axios({
+    method: 'post',
+    url: 'http://localhost/Facebook/Facebook-Backend/view_friend_suggestions.php',
+    data: suggestionFormData,
+})
+.then(function (response) {
+
     data = response.data;
 
     for (let i = 0; i<data.length; i++){
@@ -161,6 +174,7 @@ axios.get(friend_suggestions_api).then(response => {
         document.getElementById("suggestions").innerHTML += friend_suggestions_string 
     }
 
+
     //Check if any add friend button is clicked and update DB accordingly
     let add_friend_buttons =  document.getElementsByClassName("add-friend-btn")
 
@@ -169,8 +183,17 @@ axios.get(friend_suggestions_api).then(response => {
         add_friend_buttons[i].addEventListener("click", function() {
             requestID = this.getAttribute('id')
             let add_friend_data = [];
-            let add_friend_api = "http://localhost/Facebook/Facebook-Backend/send_friend_request.php/?user1=" + current_user + "&user2=" + requestID
-            axios.get(add_friend_api).then(response => {
+
+            let addFormData = new FormData();
+            addFormData.append('token', token);
+            addFormData.append('friendID', requestID);
+
+            axios({
+                method: 'post',
+                url: 'http://localhost/Facebook/Facebook-Backend/send_friend_request.php',
+                data: addFormData,
+            })
+            .then(function (response) {
                 add_friend_data = response.data;
                 if(`${add_friend_data.status}` != null){
                     document.getElementById(requestID).innerHTML = "Request Sent!"

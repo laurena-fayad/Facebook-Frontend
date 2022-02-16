@@ -18,7 +18,7 @@ bodyFormData.append('password', psw);
 
 axios({
     method: 'post',
-    url: 'http://localhost/SE_FACTORY_FB/Facebook-Backend/login.php',
+    url: 'http://localhost/Facebook/Facebook-Backend/login.php',
     data: bodyFormData,
 })
 .then(function (response) {
@@ -27,10 +27,8 @@ axios({
     window.localStorage.setItem('fname', response.data.fname);
     window.localStorage.setItem('lname', response.data.lname);
 
-   
-
     if (window.localStorage.getItem('token')!='undefined'){
-        window.location.href="http://127.0.0.1:5500/Facebook-Frontend/homepage.html";
+        window.location.href="http://localhost/Facebook/Facebook-Frontend/homepage.html";
     }
 })
 .catch(function (error) {

@@ -74,9 +74,25 @@ axios({
         }else{
             document.getElementById("posts").innerHTML += post_html
         }
-    }  
+
+        //Display the number of likes on each post
+        var bodyFormData = new FormData()
+        let likes_counter = "likes-counter" + post_id
+
+        bodyFormData.append('token', token);
+        bodyFormData.append('post_id', post_id);
+
+        axios({
+            method: 'post',
+            url: 'http://localhost/Facebook/Facebook-Backend/view_post_likes.php',
+            data: bodyFormData,
+        })
+        .then(function (response) {
+            document.getElementById(likes_counter).innerHTML = `${response.data.likes}`
+        })
+    }
     
-    //Liking a post
+    //Liking/Unliking a post
     let like_btns = document.getElementsByClassName("like-btn")
     for (let i = 0; i<like_btns.length; i++){
         like_btns[i].addEventListener("click", function(){
@@ -94,10 +110,15 @@ axios({
                 data: bodyFormData,
             })
             .then(function (response) {
-                document.getElementById(likes_counter).innerHTML = `${response.data.likes}`
+                axios({method: 'post',
+                url: 'http://localhost/Facebook/Facebook-Backend/view_post_likes.php',
+                data: bodyFormData,
+                })
+                .then(function (response) {
+                    document.getElementById(likes_counter).innerHTML = `${response.data.likes}`
+                })
             })
-        })
-    }
+    })
 
     //Deleting a post on the feed
     let delete_btns = document.getElementsByClassName("delete-post-btn")
@@ -121,6 +142,7 @@ axios({
             })
         })
     }
+}
 })
 
 // Populating friend suggestions section
@@ -154,4 +176,3 @@ axios.get(friend_suggestions_api).then(response => {
         });
     } 
 })
-

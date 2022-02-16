@@ -19,4 +19,12 @@ body {
 margin-top: -35%;
 }
 
+.slogan{
+  width:50%;
+  height:100vh;
+  display:flex;
+  flex-direction: column;
+  background-color:#5D5FEF ;
+}
+
 

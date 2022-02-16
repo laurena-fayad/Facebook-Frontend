@@ -26,17 +26,28 @@
 
     
     <div class="container">
-      <h1 id="login"class="label">Log In</h1>
-      <label id="mail" class="label" for="email"><b>Email</b></label>
-      <input id="email" type="text" placeholder= "Enter Email" name="email" required>
+      <h1 id="login"class="label">Create Account</h1>
+  <div class="input-section">  
+    <div>
+      <label id="name-label" class="label" for="fname"><b>First Name</b></label>
+      <input id="name" type="text" placeholder= "Enter First Name" name="fname" required>
+    </div>
+
+    <div class="pass-pos">
+      <label id="pass" class="label" for="lname"><b>Last Name</b></label>
+      <input id="lastname" type="text" placeholder="Enter Last Name" name="lname" required>
+    </div> 
+  </div>
+  <label id="pass" class="label" for="mail"><b>Email</b></label>
+  <input id="email-pos" type="text" placeholder="Enter Email" name="mail" required>
+
+  <label id="pass" class="label" for="psw"><b>Password</b></label>
+      <input id="pass-pos" type="password" placeholder="Enter Password" name="psw" required>
       
-      <label id="pass" class="label" for="psw"><b>Password</b></label>
-      <input id="password" type="password" placeholder="Enter Password" name="psw" required>
-      
-      <button id='login-btn' onclick="login()" type="submit">Login</button>
-      <p id="signup-text">Don't have an account?
+      <button id='login-btn' onclick="signUp()" type="submit">Sign Up</button>
+      <p id="signup-text">Already have an account?
         &nbsp; <p id="Signup-btn">
-          <a href = 'signup.html'> Sign Up </a>
+          <a href = 'index.html'> Log In </a>
         </p>
       </p>
 

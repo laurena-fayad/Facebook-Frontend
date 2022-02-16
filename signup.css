@@ -1,0 +1,125 @@
+body {
+    width:97%;
+    height:80vh;
+}
+
+  .page-container{
+    display: flex;
+    flex-wrap: wrap;
+    height:100vh;
+  }
+
+
+  .container {
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+    width:40%;
+    margin-left: 58%;
+    margin-bottom: 100%;
+    margin-top: -32%;
+}
+
+
+
+#signup-text{
+  margin-left: 30%;
+  color: #5D5FEF;
+}
+
+#Signup-btn:hover{
+  opacity: 0.8;
+  color: blue;
+}
+
+#fb-slogan{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.input-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+img{
+    
+  height:auto;
+  width:25%;
+  margin-top: 220px;
+  margin-left: 230px;
+}
+.slogan{
+  width:50%;
+  height:100vh;
+  display:flex;
+ 
+  flex-direction: column;
+  background-color:#5D5FEF ;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+
+}
+
+.label{
+  color:#5D5FEF;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#login{
+  margin-top: -15%;
+  font-size:xx-large;
+  
+}
+
+#name-label{
+  font-size: smaller;
+}
+
+#name{
+    width:97%;
+}
+
+#lastname{
+    width:100%;
+}
+#pass{
+  font-size: smaller;
+
+}
+
+
+button {
+  background-color: #5D5FEF;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+
+ @media screen and (max-width: 300px) {
+ img{
+  width:100%;
+  height:auto;
+ }
+  
+}

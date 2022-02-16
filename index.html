@@ -11,27 +11,33 @@
 
 <div class="page-container">
     <div class="slogan">
-       <img src="">
-       <h1>FACEBOOK</h1>
+       <img src="assets/facebook-logo.png">
+       <!-- <h1 id="fb-logo">FACEBOOK</h1> -->
     </div>
-   
+
+    
     <div class="container">
-      <label for="email"><b>Email</b></label>
-      <input id="email" type="text" placeholder="Enter Email" name="email" required>
+      <h1 id="login"class="label">Log In</h1>
+      <label id="mail" class="label" for="email"><b>Email</b></label>
+      <input id="email" type="text" placeholder= "Enter Email" name="email" required>
       
-      <label for="psw"><b>Password</b></label>
+      <label id="pass" class="label" for="psw"><b>Password</b></label>
       <input id="password" type="password" placeholder="Enter Password" name="psw" required>
       
       <button id='login-btn' onclick="login()" type="submit">Login</button>
+      <p id="signup-text">Don't have an account?
+        &nbsp; <p id="Signup-btn">
+          <a href = 'signup.html'> Sign Up </a>
+        </p>
+      </p>
+
       
     </div>
 </div>
-
-
-
     
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="loginfeature.js"></script>
+    <script src="signupfeature.js"></script>
 </body>
 </html>

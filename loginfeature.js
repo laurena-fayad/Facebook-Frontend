@@ -40,7 +40,6 @@ axios({
 }
 
 else{
-    {alert("Empty Field");
-}
+    alert("Empty Field");
 }
 }

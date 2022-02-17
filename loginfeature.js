@@ -28,7 +28,7 @@ axios({
     window.localStorage.setItem('lname', response.data.lname);
 
     if (window.localStorage.getItem('token')!='undefined'){
-        window.location.href="http://localhost/Facebook/Facebook-Frontend/homepage.html";
+        location.href="homepage.html";
     }
 })
 .catch(function (error) {

@@ -24,7 +24,7 @@ axios({
     for (let i = 0; i<blocked_friends_data.length; i++){
         let blocked_friend_name = `${blocked_friends_data[i].fname}` + " " + `${blocked_friends_data[i].lname}` 
         blocked_friend_ID = `${blocked_friends_data[i].user2_id}`
-        let blocked_friend_string = "<div class=blocked-friend><div class=left-friend><img src=assets/profile-pic.png><h4>"+blocked_friend_name+"</h4></div><div class=right-friend><button id=unblock" + blocked_friend_ID + " class=unblock-btn type=button>Unblock</button></div></div>"
+        let blocked_friend_string = "<div class=blocked-friend><div class=left-friend><img src=assets/profilepic.png><h4>"+blocked_friend_name+"</h4></div><div class=right-friend><button id=unblock" + blocked_friend_ID + " class=unblock-btn type=button>Unblock</button></div></div>"
         document.getElementById("blocked-friends").innerHTML += blocked_friend_string
     }
 

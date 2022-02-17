@@ -25,6 +25,7 @@ axios({
 })
 .then(function (response) {
     friends_data = response.data
+    console.log(friends_data)
     for (let i = 0; i<friends_data.length; i++){
         let friend_name = `${friends_data[i].fname}` + " " + `${friends_data[i].lname}` 
         friendID = `${friends_data[i].id}`

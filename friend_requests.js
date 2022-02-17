@@ -49,7 +49,7 @@ axios({
             })
             .then(function (response) {
                 requests_accept_data = response.data;
-                if(`${requests_accept_data.status}` == "Friend request accepted successfully."){
+                if(`${requests_accept_data.status}` == "Success"){
                     ignore_btn_ID = "ignore"+requestID
                     document.getElementById(accept_btn_ID).innerHTML = "New Friend Alert!"
                     document.getElementById(ignore_btn_ID).style.display = "none"
